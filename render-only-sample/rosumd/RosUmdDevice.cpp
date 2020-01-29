@@ -266,7 +266,8 @@ void RosUmdDevice::CreateResource(const D3D11DDIARG_CREATERESOURCE* pCreateResou
         allocate.NumAllocations = 1;
         allocate.pAllocationInfo = &allocationInfo;
 
-        HRESULT hr = m_pMSKTCallbacks->pfnAllocateCb(m_hRTDevice.handle, &allocate);
+        //When a hybrid discrete GPU supports direct flip, we must provide VidPnSourceId  & the Primary flag
+        HRESULT hr = m_pMSKTCallbacks->pfnAllocateCb(m_hRTDevice.handle, &allocate, NULL, NULL, allocationInfo.VidPnSourceId, NULL, allocationInfo.Flags.Primary);
         if (FAILED(hr))
             throw RosUmdException(hr);
 

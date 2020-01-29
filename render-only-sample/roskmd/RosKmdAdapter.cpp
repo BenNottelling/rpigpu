@@ -1087,9 +1087,12 @@ RosKmAdapter::QueryAdapterInfo(
         //
         // TODO[bhouse] MemoryManagementCaps
         //
-#if 1
+        
+if (RosKmdGlobal::IsRenderOnly()){ 
+//Hybird systems aren't allowed to have display outputs, so we will only identify as one if in render only mode.
         pDriverCaps->MemoryManagementCaps.CrossAdapterResource = 1;
-#endif
+        pDriverCaps->HybridDiscrete = 1;
+}
 
         //
         // TODO[bhouse] GpuEngineTopology
@@ -1157,10 +1160,6 @@ RosKmAdapter::QueryAdapterInfo(
 
         //
         // TODO[bhouse] SupportSurpriseRemovalInHibernation
-        //
-
-        //
-        // TODO[bhouse] HybridDiscrete
         //
 
         //
