@@ -379,9 +379,9 @@ RosKmAdapter::Start(
     *NumberOfChildren = 0;
 
     //
-    // Sample for 1.3 model currently
+    // Sample for WWDM 2.0 model currently
     //
-    m_WDDMVersion = DXGKDDI_WDDMv1_3;
+    m_WDDMVersion = DXGKDDI_WDDMv2;
 
     m_NumNodes = C_ROSD_GPU_ENGINE_COUNT;
 
